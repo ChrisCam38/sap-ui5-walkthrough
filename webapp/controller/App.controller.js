@@ -1,8 +1,15 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller){
+sap.ui.define(
+  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast"],
+  function (Controller, MessageToast) {
     "use strict";
-    return Controller.extend("sap.ui.demo.walkthrough.App", {
-        onShowHello : function(){
-            alert("Hellooo UI5");
-        }
-    })
-})
+    return Controller.extend("sap.ui.demo.walkthrough.controller.App", {
+      onShowHello: function () {
+        MessageToast.show("Hola desde el controlador");
+      },
+
+      onShowBye: function(){
+        alert("Adios desde el controller");
+      }
+    });
+  }
+);
