@@ -4,7 +4,9 @@ sap.ui.define(
     "use strict";
     return Controller.extend("sap.ui.demo.walkthrough.controller.App", {
       onShowHello: function () {
-        MessageToast.show("Hola desde el controlador");
+        MessageToast.show(
+          "Hola, son las: " + new Date().toLocaleTimeString() + "!"
+        );
       },
     });
   }
