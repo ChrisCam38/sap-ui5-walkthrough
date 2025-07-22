@@ -6,10 +6,6 @@ sap.ui.define(
       onShowHello: function () {
         MessageToast.show("Hola desde el controlador");
       },
-
-      onShowBye: function(){
-        alert("Adios desde el controller");
-      }
     });
   }
 );

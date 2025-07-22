@@ -3,10 +3,6 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
 
-    <Button text="Muestra el MessageToast" press=".onShowHello"/>
-    
-    <Button text="Adios desde el controller" press=".onShowBye"/>
-    
-    
-    
+    <Button text="Say Hi!" press=".onShowHello"/>
+     
 </mvc:View>
