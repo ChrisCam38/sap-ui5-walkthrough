@@ -41,6 +41,15 @@ sap.ui.define(
         //Show message
         MessageToast.show(sMsg);
       },
+
+      onShowBye: function () {
+        var oBundle = this.getView().getModel("i18n").getResourceBundle();
+        var sRecipient = this.getView()
+          .getModel()
+          .getProperty("/recipient/name");
+        var sMsg = oBundle.getText("byeMsg", [sRecipient]);
+        MessageToast.show(sMsg);
+      },
     });
   }
 );
