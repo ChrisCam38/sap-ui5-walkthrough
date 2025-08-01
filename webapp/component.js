@@ -8,12 +8,7 @@ sap.ui.define(
     "use strict";
     return UIComponent.extend("sap.ui.walkthrough.Component", {
       metadata: {
-        rootView: {
-          viewName: "sap.ui.demo.walkthrough.view.App",
-          type: "XML",
-          async: true,
-          id: "app",
-        },
+        manifest: "json",
       },
 
       init: function () {
@@ -31,14 +26,6 @@ sap.ui.define(
 
         //Asignamos el modelo a la vista
         this.setModel(oModel);
-
-        //Set i18n model on view
-        var i18nModel = new ResourceModel({
-          bundleName: "sap.ui.demo.walkthrough.i18n.i18n",
-          supportedLocales: [""],
-          falbackLocale: "",
-        });
-        this.setModel(i18nModel, "i18n");
       },
     });
   }
