@@ -3,8 +3,9 @@ sap.ui.define(
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/resource/ResourceModel",
+    "./controller/HelloDialog",
   ],
-  function (UIComponent, JSONModel, ResourceModel) {
+  function (UIComponent, JSONModel, ResourceModel, HelloDialog) {
     "use strict";
     return UIComponent.extend("sap.ui.walkthrough.Component", {
       metadata: {
@@ -23,9 +24,19 @@ sap.ui.define(
 
         //Creamos el modelo con esos datos
         var oModel = new JSONModel(oData);
-
         //Asignamos el modelo a la vista
         this.setModel(oModel);
+
+        //Set dialog
+        this._helloDialog = new HelloDialog(this.getRootControl());
+      },
+
+      exit: function () {
+        this._helloDialog.destroy();
+        delete this._helloDialog;
+      },
+      openHelloDialog: function () {
+        this._helloDialog.open();
       },
     });
   }
