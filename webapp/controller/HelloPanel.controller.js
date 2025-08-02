@@ -1,21 +1,42 @@
-sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast"
-], function(Controller, MessageToast){
+sap.ui.define(
+  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/ui/core/Fragment"],
+  function (Controller, MessageToast, Fragment) {
     "use strict";
     return Controller.extend("sap.ui.demo.walkthrough.controller.HelloPanels", {
-        onShowHello: function () {
-            //Read message from i18n model
-            var oBundle = this.getView().getModel("i18n").getResourceBundle();
-            var sRecipient = this.getView()
-            .getModel()
-            .getProperty("/recipient/name");
-            var sMsg = oBundle.getText("helloMsg", [sRecipient]);
-            //Show message
-            MessageToast.show(sMsg);
+      onShowHello: function () {
+        //Read message from i18n model
+        var oBundle = this.getView().getModel("i18n").getResourceBundle();
+        var sRecipient = this.getView()
+          .getModel()
+          .getProperty("/recipient/name");
+        var sMsg = oBundle.getText("helloMsg", [sRecipient]);
+        //Show message
+        MessageToast.show(sMsg);
+      },
+
+      onOpenDialog: function () {
+        var oView = this.getView();
+
+        //Create the dialog lazily
+        if (!this.byId("helloDialog")) {
+          //load asynchronus XML fragment
+          Fragment.load({
+            id: oView.getId(),
+            name: "sap.ui.demo.walkthrough.view.HelloDialog",
+            controller: this,
+          }).then(function (oDialog) {
+            //connect dialog to the root view of this component (models, lifecycle)
+            oView.addDependent(oDialog);
+            oDialog.open();
+          });
+        } else {
+          this.byId("helloDialog").open();
         }
+      },
 
-    })
-     
-
-})
+      onCloseDialog: function () {
+        this.byId("helloDialog").close();
+      },
+    });
+  }
+);
