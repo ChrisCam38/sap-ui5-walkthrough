@@ -14,9 +14,9 @@
     "tags": {
       "keywords": ["sapui5", "tutorial"]
     },
-    "dataSources":{
-      "invoiceRemote":{
-        "uri": "https://services.odata.org/V2/Northwind.svc/",
+    "dataSources": {
+      "invoiceRemote": {
+        "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0"
