@@ -1,7 +1,7 @@
 <mvc:View
     controllerName="sap.ui.demo.walkthrough.controller.Detail"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mv"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns:wt="sap.ui.demo.walkthrough.control">
     <Page
         title="{i18n>detailPageTitle}"
@@ -11,7 +11,7 @@
             responsive="true"
             fullScreenOptimized="true"
             number="{
-                parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency}'],
+                parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
                 type: 'sap.ui.model.type.Currency', 
                 formatOptions: {
                     showMeasure: false
@@ -30,12 +30,12 @@
                         formatOptions: {
                             style: 'long',
                             source: {
-                                pattern: 'yyyy'-MM=ddTHH:mm:ss'
+                                pattern: 'yyyy-MM-ddTHH:mm:ss'
                             }
                         }
                 }" />
             </attributes>
         </ObjectHeader>
-        <wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange" />
+        <wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change="onRatingChange" />
     </Page>
 </mvc:View>
