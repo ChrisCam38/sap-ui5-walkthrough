@@ -2,7 +2,21 @@
     controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
+    <Panel accesibleRole="Region">
+         <headerToolbar>
+        <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField
+                width="50%"
+                search=".onFilterInvoices"
+                ariaLabelledBy="searchFieldLabel"
+                ariaDescribedBy="searchFieldDescription"
+                placeholder="{i18n>searchFieldPlaceHolder}"/>
+        </Toolbar>
+    </headerToolbar>
 
+    
     <Table
         id="invoiceList"
         headerText="{i18n>invoiceListTitle}"
@@ -63,5 +77,6 @@
             </ColumnListItem>
         </items>
     </Table>
+    </Panel>
 
 </mvc:View>
